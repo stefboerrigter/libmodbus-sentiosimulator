@@ -14,3 +14,5 @@ SUBDIRS = src
 if BUILD_TESTS
 SUBDIRS += tests
 endif
+
+SUBDIRS += sentiosimulator

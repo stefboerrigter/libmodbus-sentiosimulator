@@ -153,6 +153,13 @@ AC_ARG_ENABLE(tests,
 	[enable_tests=yes])
 AM_CONDITIONAL(BUILD_TESTS, [test $enable_tests != no])
 
+# Build options
+AC_ARG_ENABLE(sentio,
+	AS_HELP_STRING([--disable-sentio],
+	[Build sentiosimulator (default: yes)]),,
+	[enable_sentiosim=yes])
+AM_CONDITIONAL(BUILD_TESTS, [test $enable_sentiosim != no])
+
 AC_CONFIG_HEADERS([config.h tests/unit-test.h])
 AC_CONFIG_FILES([
         Makefile
@@ -160,6 +167,7 @@ AC_CONFIG_FILES([
         src/modbus-version.h
         src/win32/modbus.dll.manifest
         tests/Makefile
+        sentiosimulator/Makefile
         libmodbus.pc
 ])
 
@@ -178,4 +186,5 @@ AC_MSG_RESULT([
         ldflags:                ${LDFLAGS}
 
         tests:                  ${enable_tests}
+        sentiosimulator:        ${enable_sentiosim}
 ])
